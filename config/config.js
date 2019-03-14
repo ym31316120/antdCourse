@@ -20,8 +20,8 @@ export default {
             component:'./HelloWorld'
         },
         {
-            path:"/HelloList",
-            component:'./HelloList'
+            path:"/Content",
+            component:'./Content'
         }
     ]
 }
