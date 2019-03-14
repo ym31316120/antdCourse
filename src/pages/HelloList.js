@@ -1,6 +1,20 @@
 import React from 'react';
 
 class HelloList extends React.Component {
+    constructor(props){
+        super(props);
+        this.state ={
+            value :"default"
+        };
+        this.changeValue = this.changeValue.bind(this);
+    }
+
+    changeValue(){
+        this.setState({
+            value:"X"
+        })
+    }
+
     render() {
         return (
             <div>
@@ -11,6 +25,7 @@ class HelloList extends React.Component {
                 <li> Oculus {this.props.name}</li>
 
             </ul>
+            <button onClick={this.changeValue} >{this.state.value}</button>
         </div>
         );
     }
