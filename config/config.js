@@ -12,16 +12,15 @@ export default {
     ],
     routes: [
         {
-            path:"/",
-            component:'./HelloWorld'
-        },
-        {
-            path:"/HelloWorld",
-            component:'./HelloWorld'
-        },
-        {
-            path:"/Content",
-            component:'./Content'
+            path:'/',
+            component:'../layout',
+            routes:[
+                { path: '/', component: './HelloWorld'},
+                {
+                    path:'helloWord',
+                    component: './HelloWorld'
+                }
+            ]
         }
     ]
 }
