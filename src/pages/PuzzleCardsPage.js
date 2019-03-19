@@ -12,12 +12,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onClickAdd: (newCard) => {
-            const action = {
-                type: `${namespace}/addNewCard`,
-                payload: newCard,
-            };
-            dispatch(action);
+        onDidMount: () => {
+            dispatch({
+                type: `${namespace}/queryInitCards`,
+            });
         },
     };
 };
@@ -27,6 +25,9 @@ export default class PuzzleCardsPage extends Component {
     constructor(props) {
         super(props);
         this.counter = 100;
+    }
+    componentDidMount() {
+        this.props.onDidMount();
     }
 
     addNewCard = () => {
