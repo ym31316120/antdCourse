@@ -17,8 +17,14 @@ export default {
             routes:[
                 { path: '/', component: './HelloWorld'},
                 {
-                    path:'helloWord',
+                    path:'/helloworld',
                     component: './HelloWorld'
+                },
+                {
+                    path:'dashboard',
+                    routes: [
+                        { path: '/dashboard/content', component: './Content' },
+                    ]
                 }
             ]
         }
