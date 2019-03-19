@@ -23,7 +23,7 @@ class BasicLayout extends Component {
                             key="sub1"
                             title={<span><Icon type="dashboard"/><span>Dashboard</span></span>}>
                             <Menu.Item key="2"><Link to="/dashboard/content">分析页</Link></Menu.Item>
-                            <Menu.Item key="3">监控页</Menu.Item>
+                            <Menu.Item key="3"><Link to="/dashboard/puzzlecard">监控页</Link></Menu.Item>
                             <SubMenu
                                 key="sub2"
                                 title={<span><Icon type="dashboard"/><span>Dashboard</span></span>}>
