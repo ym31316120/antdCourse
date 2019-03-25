@@ -17,6 +17,13 @@ const mapDispatchToProps = (dispatch) => {
                 type: `${namespace}/queryInitCards`,
             });
         },
+        onClickAdd: (newCard) => {
+            const action = {
+                type: `${namespace}/addNewCard`,
+                payload: newCard,
+            };
+            dispatch(action);
+        },
     };
 };
 
