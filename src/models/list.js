@@ -1,4 +1,4 @@
-
+import * as cardsService from '../service/list';
 
 const delay = (millisecond) => {
     return new Promise((resolve) => {
@@ -11,37 +11,24 @@ export default {
         cardsList: []
     },
     effects: {
-        * queryList(_, sagaEffects) {
-            const listData = [
-                {
-                    name: 'umi',
-                    desc: '极快的类 Next.js 的 React 应用框架',
-                    url: 'https://umijs.org'
-                },
-                {
-                    name: 'antd',
-                    desc: '一个服务于企业级产品的设计体系',
-                    url: 'https://ant.design/index-cn'
-                },
-                {
-                    name: 'antd-pro',
-                    desc: '一个服务于企业级产品的设计体系',
-                    url: 'https://ant.design/index-cn'
-                }
-            ];
-            console.log("获取数据");
-            const {call, put} = sagaEffects;
-            yield call(delay, 3000);
-            console.log("获取数据结束");
-            yield put({type: 'initList', payload: listData});
-        }
+        *queryList({ _ }, { call, put }) {
+            const rsp = yield call(cardsService.queryList);
+            console.log('queryList');
+            console.log(rsp);
+            yield put({ type: 'saveList', payload: { cardsList: rsp.result } });
+        },
+        *addOne({ payload }, { call, put }) {
+            const rsp = yield call(cardsService.addOne, payload);
+            yield put({ type: 'queryList' });
+            return rsp;
+        },
     },
     reducers: {
-        initList(state, {payload}) {
-            const cardsList = [...payload];
+        saveList(state, { payload: { cardsList } }) {
             return {
-                cardsList
-            };
-        }
+                ...state,
+                cardsList,
+            }
+        },
     }
 };
