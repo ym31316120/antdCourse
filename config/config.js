@@ -26,6 +26,7 @@ export default {
                     routes: [
                         { path: '/dashboard/content', component: './Content' },
                         { path: '/dashboard/puzzlecard', component: './PuzzleCardsPage' },
+                        { path: '/dashboard/list', component: './list' },
                     ]
                 }
             ]
